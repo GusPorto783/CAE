@@ -116,54 +116,70 @@ int deletar()
 
 
 int main ()
-{
+    {
 	int opcao=0; //Definindo variáveis
 	int laco=1;
+    char senhadigitada[10]="a";
+    int comparacao;
+    
+    printf("### Bem-vinde a CAE: Central de Acesso da EBAC ###\n\n");
+    printf("Login de administrador!\n\nDigite a sua senha: ");
+    scanf("%s",senhadigitada);
+    
+    comparacao = strcmp(senhadigitada, "admin");
+    
+    if(comparacao == 0)
+    {
+	    system("cls");
+	    for(laco=1;laco=1;)
+	    {
 	
-	for(laco=1;laco=1;)
-	{
+	       system("cls");
 	
-	system("cls");
+	       setlocale(LC_ALL, "portuguese"); //Definindo linguagem
 	
-	setlocale(LC_ALL, "portuguese"); //Definindo linguagem
+	       printf("### Bem-vinde a CAE: Central de Acesso da EBAC ###\n\n"); // Início do menu
+	       printf("Escolha a opção desejada abaixo: \n\n");
+	       printf("\t1 - Registrar nomes\n");
+	       printf("\t2 - Consultar nomes\n");
+	       printf("\t3 - Deletar nomes\n\n"); 
+	       printf("\t4 - Sair do Sistema\n\n");
+	       printf("opção: ");//Fim do menu
 	
-	printf("### Bem-vinde a CAE: Central de Alunos da EBAC ###\n\n"); // Início do menu
-	printf("Escolha a opção desejada abaixo: \n\n");
-	printf("\t1 - Registrar nomes\n");
-	printf("\t2 - Consultar nomes\n");
-	printf("\t3 - Deletar nomes\n\n"); 
-	printf("\t4 - Sair do Sistema\n\n");
-	printf("opção: ");//Fim do menu
+	       scanf("%d", &opcao); //Armazenando escolha do usuário
 	
-	scanf("%d", &opcao); //Armazenando escolha do usuário
-	
-	system("cls"); //Responsável por limpar a tela
+	       system("cls"); //Responsável por limpar a tela
 	
 	
-	switch(opcao) //Início da seleção de menu
-	{
-	    case 1: //Chamada de funções
-        registro();
-		break;
+	        switch(opcao) //Início da seleção de menu
+	        {
+	          case 1: //Chamada de funções
+              registro();
+		      break;
 		
-		case 2:
-		consulta();
-		break;
+	          case 2:
+		      consulta();
+		      break;
 		
-		case 3:
-		deletar();
-		break;
+	 	      case 3:
+		      deletar();
+	          break;
 		
-		case 4:
-		printf("Obrigado por Utilizar o CAE!\n");
-		return 0;
-		break;
+		      case 4:
+		      printf("Obrigado por Utilizar o CAE!\n");
+		      return 0;
+		       break;
 		 
-	    default:
-		printf("Essa opção não está disponível!\n");
-		system("pause");
-		break;
-	}	// Fim da seleção
-	
-}
+	          default:
+	          printf("Essa opção não está disponível!\n");
+	    	  system("pause");
+	    	  break;
+	       }// Fim da seleção
+		}
+    }
+    
+    else
+        printf("Senha Incorreta!");
+ 
+
 }
